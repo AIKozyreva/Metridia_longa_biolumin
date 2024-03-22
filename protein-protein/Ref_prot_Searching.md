@@ -36,8 +36,34 @@ Usage: hmmsearch [options] <hmmfile> <seqdb>
 
 ##### Running for step extract the long open reading frames TransDecoder
 ```
-TransDecoder.LongOrfs -t denovo_transcriptome.fasta
+TransDecoder.LongOrfs -t soft_filtered_transcripts.fasta
 _______________________________________________
+we got /.../soft_filtered_transcripts.fasta.transdecoder_dir with bunch of files, including **longest_orfs.pep**
+```
+##### Make additional steps with making homology dataset from pfam and hmmer
+```
+gzip -d /mnt/projects/users/aalayeva/rac/Pfam-A.hmm.gz
+hmmsearch --cpu 8 -E 1e-10 --domtblout pfam.domtblout /../rac/Pfam-A.hmm /../analysis/soft_filtered_transcripts.fasta.transdecoder_dir/longest_orfs.pep
+_______________________________________________
+we got pfam.domtblout non epty file in the current location
+```
+
+##### Running the second Prediction transdecoder step
+Here i have to note, for running you have to be in the dir, where /soft_filtered_transcripts.fasta.transdecoder_dir from first step is located. And one more: all sequences with non atgc alphabet will be skipped by the program with _"Error, feature_seq: NNNNNNNNNNNNNNNNNNNAATGTGCAGTATTG contains non-GATC chars... skipping"_ mark. In the end we should get a bunch of files in our current location: .bed, .gff3, .pep, .cds; 
+
+how to read the output: https://github.com/TransDecoder/TransDecoder/wiki#running-transdecoder 
+```
+TransDecoder.Predict -t /../analysis/soft_filtered_transcripts.fasta --retain_pfam_hits /../analysis/pfam.domtblout
+```
+### Step 3. Alignment of protein homologous to ORF and coord data from step2.
+Tools: exonerate
+```
+conda create -n exonerate-env exonerate
+exonerate --help
+__________________________________________________
+exonerate from exonerate version 2.4.0
+```
+```
 
 ```
 
