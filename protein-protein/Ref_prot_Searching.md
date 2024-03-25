@@ -1,6 +1,6 @@
 # Trying to find Ref_protein in our de-novo transcriptome data
-Ref_protein - as the ref protein we decided to take the XXXX from YYYYY. Because it's the one, which was detected by our collegues via comparing metagenomics data from metridia londa and clean sea water. 
-Also chosing of XXX is based on:
+Ref_protein - as the ref protein we decided to take the _Isopenicillin N synthase_ (IPNS_STRCL; interpro - P10621; conserv-e site - IPR002057) from _Streptomyces clavuligerus_ gene _pcbC_. Because it's the one, which was detected by our collegues via comparing metagenomics data from metridia londa and clean sea water. 
+Also chosing of IPNS_STRCL is based on:
 > Были выдвинуты гипотезы (Oba et al., 2009) о биосинтезе целентеразина:
 > механизм нерибосомального синтеза циклизация и дальнейшая модификация аминокислотных остатков FYY,  как части более длинного пептида
 > 
@@ -64,6 +64,31 @@ __________________________________________________
 exonerate from exonerate version 2.4.0
 ```
 ```
+exonerate --query /mnt/projects/users/aalayeva/rac/protein-isopenicillin-superfamily-IPR027443.fasta --target /mnt/projects/users/aalayeva/rac/analysis/soft_filtered_transcripts.fasta --model protein2genome --showalignment TRUE --ryo ">%ti %tab-%tae\n%tas\n" > exonerate_output_prot2genome.txt
+_____________________________________________
+_example of output.txt_
+Query: F4K7D5|reviewed|Probable flavonol synthase 6|taxID:3702
+Target: NODE_22289_length_1850_cov_394.898945_g11494_i0 [revcomp]
+Model: protein2genome:local
+Raw score: 109
+Query range: 152 -> 279
+Target range: 678 -> 285
 
+ 153 : GlyGlyAspLysAlaGlnTyrValMetArgIleAsnTyrTyrProPro<-><-><->SerAspS : 171
+       |||  !   ::: !!  !!:!  !:!!|||!!:|||:!!|||||||||         ..!!!:.
+       GlyPheThrArgProThrPheArgLeuArgMetAsnHisTyrProProValProLeuGluGluG
+ 678 : GGCTTCACACGCCCCACGTTCCGGCTGCGAATGAACCACTACCCTCCCGTCCCCTTGGAGGAGG : 615
 ```
+We have founf only 1 hit with Isopenicillin N synthase. Data is below.
+> Query: P10621|reviewed|Isopenicillin N synthase|taxID:1901
+> Target: NODE_85794_length_573_cov_1.034351_g58227_i0 [revcomp]
+> Model: protein2genome:local
+> Raw score: 100
+> Query range: 210 -> 276 
+> Target range: 427 -> 226
+> > vulgar: P10621|reviewed|Isopenicillin 210 276 . NODE_85794_length_573_cov_1.034351_g58227_i0 427 226 - 100 M 26 78 G 0 3 M 40 120
+> >NODE_85794_length_573_cov_1.034351_g58227_i0 427-226
+> > GAACATGCTGACTATGGAACCATCACCTTACTCTTCCAGGATACCATTGGAGGACTCCAGGTCAAAACTG
+> > GAGATGAAGTCTGGAGAGAAGTGGAGCCAGTGCCTGGAACAGTTCTGGTCAATGTTGGAGAACTGCTGGA
+> > GATGATCTCTGGAGGAGTGTGGCCAGCCACCAGACACAGGGTGGTTGTGCCATCTGGAGAA
 
