@@ -65,19 +65,7 @@ exonerate from exonerate version 2.4.0
 ```
 ```
 exonerate --query /mnt/projects/users/aalayeva/rac/protein-isopenicillin-superfamily-IPR027443.fasta --target /mnt/projects/users/aalayeva/rac/analysis/soft_filtered_transcripts.fasta --model protein2genome --showalignment TRUE --ryo ">%ti %tab-%tae\n%tas\n" > exonerate_output_prot2genome.txt
-_____________________________________________
-_example of output.txt_
-Query: F4K7D5|reviewed|Probable flavonol synthase 6|taxID:3702
-Target: NODE_22289_length_1850_cov_394.898945_g11494_i0 [revcomp]
-Model: protein2genome:local
-Raw score: 109
-Query range: 152 -> 279
-Target range: 678 -> 285
 
- 153 : GlyGlyAspLysAlaGlnTyrValMetArgIleAsnTyrTyrProPro<-><-><->SerAspS : 171
-       |||  !   ::: !!  !!:!  !:!!|||!!:|||:!!|||||||||         ..!!!:.
-       GlyPheThrArgProThrPheArgLeuArgMetAsnHisTyrProProValProLeuGluGluG
- 678 : GGCTTCACACGCCCCACGTTCCGGCTGCGAATGAACCACTACCCTCCCGTCCCCTTGGAGGAGG : 615
 ```
 We have founf only 1 hit with Isopenicillin N synthase. Data is below.
 > Query: P10621|reviewed|Isopenicillin N synthase|taxID:1901
