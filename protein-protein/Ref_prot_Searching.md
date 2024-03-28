@@ -21,18 +21,18 @@ conda create -n transdecoder
 conda activate transdecoder
 conda install -c bioconda transdecoder
 /path to/TransDecoder.LongOrfs --version
-___________________________________________________________________________________________
+```
 TransDecoder.LongOrfs 5.5.0
-___________________________________________________________________________________________
+
+```
 conda create -n hmm
 conda activate hmm
 conda install -c biocore hmmer
 hmmsearch -h
-___________________________________________________________________________________________
-# hmmsearch :: search profile(s) against a sequence database
-# HMMER 3.1b2 (February 2015); http://hmmer.org
-Usage: hmmsearch [options] <hmmfile> <seqdb>
 ```
+hmmsearch :: search profile(s) against a sequence database
+HMMER 3.1b2 (February 2015); http://hmmer.org
+Usage: hmmsearch [options] <hmmfile> <seqdb>
 
 ##### Running for step extract the long open reading frames TransDecoder
 ```
@@ -64,10 +64,10 @@ __________________________________________________
 exonerate from exonerate version 2.4.0
 ```
 ```
-exonerate --query /mnt/projects/users/aalayeva/rac/protein-isopenicillin-superfamily-IPR027443.fasta --target /mnt/projects/users/aalayeva/rac/analysis/soft_filtered_transcripts.fasta --model protein2genome --showalignment TRUE --ryo ">%ti %tab-%tae\n%tas\n" > exonerate_output_prot2genome.txt
+exonerate --query /mnt/projects/users/aalayeva/rac/protein-isopenicillin-superfamily-IPR027443.fasta --target /mnt/projects/users/aalayeva/rac/analysis/transcripts.fasta --model protein2genome --showalignment TRUE --ryo ">%ti %tab-%tae\n%tas\n" > exonerate_output_prot2genome.txt
 
 ```
-We have founf only 1 hit with Isopenicillin N synthase. Data is below.
+We have found 11 hits with Isopenicillin N synthase. Hits looked like the one below.
 > Query: P10621|reviewed|Isopenicillin N synthase|taxID:1901
 > Target: NODE_85794_length_573_cov_1.034351_g58227_i0 [revcomp]
 > Model: protein2genome:local
