@@ -39,7 +39,31 @@ Command for 1 sample will be:
 ```
 sortmerna -ref /mnt/projects/users/aalayeva/RNAsort/smr_v4.3_default_db.fasta -reads /mnt/projects/users/aalayeva/rac/analysis/try1/S1_R1.fastq -reads /mnt/projects/users/aalayeva/rac/analysis/try1/S1_R2.fastq -workdir /mnt/projects/users/aalayeva/rac/analysis/sortRNA ---fastx --sam --blast 1 --num_alignments 5 
 ```
+Such command takes too much time and for us only log-file with stat.report is enoug, so we will delete -fastx -sam -blast parameters for cycle.
+
 Cycle for all samples:
 ```
-//////
+#!/bin/bash
+
+# Define the directory paths
+ref="/mnt/projects/users/aalayeva/RNAsort/smr_v4.3_default_db.fasta"
+input_dir="/mnt/projects/users/aalayeva/rac/analysis/try1"
+output_dir="/mnt/projects/users/aalayeva/rac/analysis/sortRNA"
+
+# Loop through each sample
+for ((i=2; i<=7; i++)); do
+    sample="S$i"
+    workdir="$output_dir/$sample"
+    mkdir -p "$workdir"  # Create the output directory if it doesn't exist
+
+    # Run the command for the current sample
+    sortmerna -ref "$ref" \
+              -reads "$input_dir/${sample}_R1.fastq" \
+              -reads "$input_dir/${sample}_R2.fastq" \
+              -workdir "$workdir" \
+              --num_alignments 5
+done
 ```
+Anyway each command is time-consumind due to sortmerna produs many alignments and has blast-like algorithm inside it (as far as i caught), and we know that blast is "long-running" one.
+
+For _1 sample_ we have got _49% of reads were aligned towards rRNA-default database_ from both paired files. So, that's not perfect library for rna-seq due to high level of rRNA data in the raw samples. It might be possible for our collegues to recheck and maybe update their "small RNA filtering" part of extraction and lib-preparing protocol.
