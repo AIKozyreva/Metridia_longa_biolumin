@@ -55,28 +55,50 @@ how to read the output: https://github.com/TransDecoder/TransDecoder/wiki#runnin
 ```
 TransDecoder.Predict -t /../analysis/soft_filtered_transcripts.fasta --retain_pfam_hits /../analysis/pfam.domtblout
 ```
-### Step 3. Alignment of protein homologous to ORF and coord data from step2.
-Tools: exonerate
+##### Search for peptides with an FYY motif**
+
+First we found the sections that contain the FYY motif and then picked the ones that end with FYY (cases of losing stop-codon, for example because of degradation).
 ```
-conda create -n exonerate-env exonerate
-exonerate --help
-__________________________________________________
-exonerate from exonerate version 2.4.0
+awk 'BEGIN{RS=">";FS="\n"} {seq=$2; gsub("\n","",$2); if(index(seq, "FYY") || index(seq, "YYF")) {print ">"$1"\n"$2"\n"}}' longest_orfs.pep > filtered_hypothetical_peptides.fasta
+
+grep -B 1 "FYY$" filtered_hypothetical_peptides.fasta > FYYend_hypothetical_peptides.fasta
 ```
+Also created a file that contains sections with the FYY motif before the stop codon (normal cases with FYY motif on the protein end).
 ```
-exonerate --query /mnt/projects/users/aalayeva/rac/protein-isopenicillin-superfamily-IPR027443.fasta --target /mnt/projects/users/aalayeva/rac/analysis/transcripts.fasta --model protein2genome --showalignment TRUE --ryo ">%ti %tab-%tae\n%tas\n" > exonerate_output_prot2genome.txt
+grep -B 1 --no-group-separator  "FYY\*" longest_orfs.pep >fyy_peptides.fasta
+```
+Then merged two file t0 get one common file with proteins, which have FYY anywhere in the sequence:
+```
+cat fyy_peptides.fasta FYYend_hypothetical_peptides.fasta > all_fyy.fasta
+```
+
+##### BLAST the results FYY-proteins file**
+
+As reference database we decided to take refseq protein, because it contains only reviewed proteins, which sequence or properties were confirmed.
 
 ```
-We have found 11 hits with Isopenicillin N synthase. Hits looked like the one below.
-> Query: P10621|reviewed|Isopenicillin N synthase|taxID:1901
-> Target: NODE_85794_length_573_cov_1.034351_g58227_i0 [revcomp]
-> Model: protein2genome:local
-> Raw score: 100
-> Query range: 210 -> 276 
-> Target range: 427 -> 226
-> > vulgar: P10621|reviewed|Isopenicillin 210 276 . NODE_85794_length_573_cov_1.034351_g58227_i0 427 226 - 100 M 26 78 G 0 3 M 40 120
-> >NODE_85794_length_573_cov_1.034351_g58227_i0 427-226
-> > GAACATGCTGACTATGGAACCATCACCTTACTCTTCCAGGATACCATTGGAGGACTCCAGGTCAAAACTG
-> > GAGATGAAGTCTGGAGAGAAGTGGAGCCAGTGCCTGGAACAGTTCTGGTCAATGTTGGAGAACTGCTGGA
-> > GATGATCTCTGGAGGAGTGTGGCCAGCCACCAGACACAGGGTGGTTGTGCCATCTGGAGAA
+update_blastdb.pl --decompress  "refseq_protein" --force --verbose #download db
 
+blastp -db /local/workdir/dmm2017/blast_protein/refseq_protein -query all_fyy.fasta -out blast_results/blastp_results.txt -evalue 0.001 -outfmt "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore stitle" -num_threads 4 #look for hits in our common file towards refseq db
+```
+
+##### Differential expression analysis
+
+**1. Mapping reads to assembled transcriptome**
+It was decided to run mapping in two ways: separately for each sample and also run for groups of luminous (2,4,6) and non-luminous parts (3,5,7).
+
+Examples of running mapping using hisat2:
+```
+hisat2-build -p 16 soft_filtered_transcripts.fasta tr_index
+
+hisat2 -x tr_index -1 S1_R1.fastq.gz -2 S1_R2.fastq.gz | samtools view -Su - | samtools sort --threads 30 -m 12G -o metridia.1.hisat.bam -
+```
+```
+hisat2 -x tr_index -1 S2_R1.fastq.gz,S4_R1.fastq.gz,S6_R1.fastq.gz -2 S2_R2.fastq.gz,S4_R2.fastq.gz,S6_R2.fastq.gz | samtools view -Su - | samtools sort --threads 30 -m 12G -o metridia.246.hisat.bam -
+
+hisat2 -x tr_index -1 S3_R1.fastq.gz,S5_R1.fastq.gz,S7_R1.fastq.gz -2 S3_R2.fastq.gz,S5_R2.fastq.gz,S7_R2.fastq.gz | samtools view -Su - | samtools sort --threads 30 -m 12G -o metridia.357.hisat.bam -
+```
+
+**2. Calculate Counts table**
+
+Calculating transcript abundance, using FeatureCounts and then performing differential expression using DESeq2.
