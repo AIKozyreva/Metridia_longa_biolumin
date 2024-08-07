@@ -12,7 +12,9 @@ for filename in *.fastq.gz;do gzip -d $filename; done
 
 multiqc ./*.zip -o ../multiqc_report -n rew_data_multi_report --export ../multiqc_plots --pdf --data-format tsv
 ```
+![image](https://github.com/user-attachments/assets/cb90187d-5a09-48ff-a001-09b8e448ade5)
 
+![image](https://github.com/user-attachments/assets/ac997f2a-7337-469c-9f51-43573f179522)
 
 Данные хорошего качества, обрезать и редактировать ничего не буду. Есть 20 overrepresented последовательностей. Сделала для них бласт против всей нуклеотидной базы по алгориму megablast (the highest similarity). Хиты для каждой представлены в списке ниже.
 
