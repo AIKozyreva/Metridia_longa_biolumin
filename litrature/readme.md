@@ -2,6 +2,7 @@
 
 Оч важная статья: "Occurrence of Isopenicillin-N-Synthase Homologs in Bioluminescent Ctenophores and Implications for Coelenterazine Biosynthesis" - https://pmc.ncbi.nlm.nih.gov/articles/PMC4488382/#pone.0128742.g004 
 
+И ещё оч важно понять работу "РАЕВА СРАВНИТЕЛЬНЫЙ АНАЛИЗ..." м- это девочка, которая работала над той же темой, но в другом разрезе можно сказать.
 
 Общий научпоп обзор: https://elementy.ru/nauchno-populyarnaya_biblioteka/434423/Biolyuminestsentsiya_vozrozhdenie 
 
