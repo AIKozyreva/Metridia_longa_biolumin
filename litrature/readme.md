@@ -20,4 +20,11 @@ https://www.booksite.ru/fulltext/1/001/008/118/134.htm
 И про бактерий аналогично: 
 https://bigenc.ru/c/bioliuminestsentnaia-sistema-bakterii-ff175d 
 
+А вот научные статьи по теме: 
+https://pubmed.ncbi.nlm.nih.gov/26531017/
+https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2021.673620/full 
+https://pmc.ncbi.nlm.nih.gov/articles/PMC6140675/ 
+https://pubmed.ncbi.nlm.nih.gov/19833098/
+https://pmc.ncbi.nlm.nih.gov/articles/PMC58698/ 
+https://pubmed.ncbi.nlm.nih.gov/17130452/ 
 
