@@ -1,0 +1,215 @@
+Command line: [exonerate --query /mnt/projects/users/aalayeva/rac/protein-isopenicillin-superfamily-IPR027443.fasta --target /mnt/projects/users/aalayeva/rac/analysis/before_rr.fasta --model protein2genome --showtargetgff TRUE --showalignment TRUE --ryo >%ti %tab-%tae\n%tas\n]
+Hostname: [aglab1]
+
+C4 Alignment:
+------------
+         Query: Q9ZTA2|reviewed|Probable inactive 2-oxoglutarate-dependent dioxygenase AOP2|taxID:3702
+        Target: NODE_161474_length_162_cov_433.938053
+         Model: protein2genome:local
+     Raw score: 110
+   Query range: 267 -> 312
+  Target range: 12 -> 147
+
+ 268 : HisThrAspLysAsnLeuPheThrValLeuPheGlnHisGluIleGluGlyLeuGluValLysT : 289
+       |||:!!||| ! ...  !.!!|||:!!|||!:!||| !!.!.!!:! !|||||||||||||||:
+       HisSerAspTyrGlyThrIleThrLeuLeuTyrGlnAspAsnMetGlyGlyLeuGluValLysS
+  13 : CACTCAGATTATGGAACCATCACGCTTCTATATCAGGACAATATGGGAGGTTTAGAGGTCAAGT :  76
+
+ 290 : hrLysAspGluLysTrpIleArgValLysProSerProAsnThrPheIleValIleAlaGlyAs : 310
+       !!  !|||.!.||||||:!:!:!!.!   |||! !|||...|||.!!:!!|||! !!.!|||||
+       erAlaAspHisLysTrpValGlnAlaValProIleProGlyThrIleLeuValAsnValGlyAs
+  77 : CAGCAGATCATAAGTGGGTGCAGGCTGTCCCAATACCAGGAACTATCCTAGTTAATGTAGGTGA : 139
+
+ 311 : pSerLeu : 312
+       |! !|||
+       pLeuLeu
+ 140 : TTTACTA : 147
+
+vulgar: Q9ZTA2|reviewed|Probable 267 312 . NODE_161474_length_162_cov_433.938053 12 147 + 110 M 45 135
+# --- START OF GFF DUMP ---
+#
+#
+##gff-version 2
+##source-version exonerate:protein2genome:local 2.4.0
+##date 2024-03-22
+##type DNA
+#
+#
+# seqname source feature start end score strand frame attributes
+#
+NODE_161474_length_162_cov_433.938053	exonerate:protein2genome:local	gene	13	147	110	+	.	gene_id 1 ; sequence Q9ZTA2|reviewed|Probable ; gene_orientation . ; identity 44.44 ; similarity 62.22
+NODE_161474_length_162_cov_433.938053	exonerate:protein2genome:local	cds	13	147	.	+	.	
+NODE_161474_length_162_cov_433.938053	exonerate:protein2genome:local	exon	13	147	.	+	.	insertions 0 ; deletions 0 ; identity 44.44 ; similarity 62.22
+NODE_161474_length_162_cov_433.938053	exonerate:protein2genome:local	similarity	13	147	110	+	.	alignment_id 1 ; Query Q9ZTA2|reviewed|Probable ; Align 13 268 135
+# --- END OF GFF DUMP ---
+#
+>NODE_161474_length_162_cov_433.938053 12-147
+CACTCAGATTATGGAACCATCACGCTTCTATATCAGGACAATATGGGAGGTTTAGAGGTCAAGTCAGCAG
+ATCATAAGTGGGTGCAGGCTGTCCCAATACCAGGAACTATCCTAGTTAATGTAGGTGATTTACTA
+
+
+C4 Alignment:
+------------
+         Query: Q944Z9|reviewed|2-oxoglutarate-dependent dioxygenase AOP2|taxID:3702
+        Target: NODE_820820_length_533_cov_5.334711 [revcomp]
+         Model: protein2genome:local
+     Raw score: 103
+   Query range: 199 -> 288
+  Target range: 514 -> 247
+
+ 200 : AsnValGlyValLysValAsnAlaAspIleSerAspAspValAsnAlaAsnProSerValAsnA : 221
+       |||..!..!..!!!.:!!|||.!!:!!! !!.!  !:!!..!|||  !|||  !! !..!||||
+       AsnThrAsnThrAsnIleAsnThrAsnThrLysIleAsnThrAsnAsnAsnIleIleThrAsnA
+ 514 : AATACCAATACTAATATCAATACCAATACCAAAATCAATACTAATAACAATATCATTACCAATG : 451
+
+ 222 : laGlyValGlyAlaAsnValAsnAlaAspThrGlyValAsnAspAsnLeuAsnValAspAlaGl : 242
+       ||..!:!!..!.!!|||  !!.!.!!  !|||..!..!|||  !|||  !:!!:!!:!!.!!  
+       laAsnIleAsnThrAsnAsnThrThrIleThrAsnThrAsnIleAsnThrAspIleAsnThrTh
+ 450 : CCAATATCAATACAAATAACACTACCATTACCAATACCAATATCAATACTGATATCAATACCAC : 388
+
+ 243 : uAlaAsnGlyAspAlaAsnIleAlaValGlyGlyGlyValAsnAlaAsnThrAspLeuGlyVal : 263
+        .!!|||  !|||  !||||||  !..!! !  !..!..!|||  !|||..!:!!:!!..!..!
+       rThrAsnThrAspIleAsnIleAsnThrAspIleAsnThrAsnIleAsnValAsnIleAsnThr
+ 387 : TACCAATACTGATATCAATATCAATACTGATATTAACACCAATATCAATGTCAATATCAATACC : 325
+
+ 264 : GlyValAsnValAsnSerAsnValAlaValAsnAlaLysThrGlyAlaThrSerGlyAspAspV : 285
+       ..!:!!:!!:!!|||!:!|||:!!  !..!|||  ! ! ! !  !  !!.!!!!..!  !:!!.
+       AsnIleHisIleAsnAsnAsnIleAsnThrAsnIleHisIleHisIleAsnThrAsnThrAsnT
+ 324 : AATATCCATATCAATAACAATATCAATACCAATATCCATATCCATATCAATACCAATACCAATA : 259
+
+ 286 : alGluAlaAsn : 288
+       .!!!:  !|||
+       hrAspIleAsn
+ 258 : CGGATATCAAT : 248
+
+vulgar: Q944Z9|reviewed|2-oxoglutarate-dependent 199 288 . NODE_820820_length_533_cov_5.334711 514 247 - 103 M 89 267
+# --- START OF GFF DUMP ---
+#
+#
+##gff-version 2
+##source-version exonerate:protein2genome:local 2.4.0
+##date 2024-03-22
+##type DNA
+#
+#
+# seqname source feature start end score strand frame attributes
+#
+NODE_820820_length_533_cov_5.334711	exonerate:protein2genome:local	gene	248	514	103	-	.	gene_id 1 ; sequence Q944Z9|reviewed|2-oxoglutarate-dependent ; gene_orientation . ; identity 22.47 ; similarity 41.57
+NODE_820820_length_533_cov_5.334711	exonerate:protein2genome:local	cds	248	514	.	-	.	
+NODE_820820_length_533_cov_5.334711	exonerate:protein2genome:local	exon	248	514	.	-	.	insertions 0 ; deletions 0 ; identity 22.47 ; similarity 41.57
+NODE_820820_length_533_cov_5.334711	exonerate:protein2genome:local	similarity	248	514	103	-	.	alignment_id 1 ; Query Q944Z9|reviewed|2-oxoglutarate-dependent ; Align 515 200 267
+# --- END OF GFF DUMP ---
+#
+>NODE_820820_length_533_cov_5.334711 514-247
+AATACCAATACTAATATCAATACCAATACCAAAATCAATACTAATAACAATATCATTACCAATGCCAATA
+TCAATACAAATAACACTACCATTACCAATACCAATATCAATACTGATATCAATACCACTACCAATACTGA
+TATCAATATCAATACTGATATTAACACCAATATCAATGTCAATATCAATACCAATATCCATATCAATAAC
+AATATCAATACCAATATCCATATCCATATCAATACCAATACCAATACGGATATCAAT
+
+
+C4 Alignment:
+------------
+         Query: Q9FFF6|reviewed|Jasmonate-induced oxygenase 2|taxID:3702
+        Target: NODE_1007736_length_453_cov_4979.475248 [revcomp]
+         Model: protein2genome:local
+     Raw score: 119
+   Query range: 282 -> 348
+  Target range: 453 -> 255
+
+ 283 : AsnIleGlyAspGlnIleGlnIleLeuSerAsnSerThrTyrLysSerValGluHisArgValI : 304
+       |||! !|||!!:! !:!::!!   ! !||||||..!! !  !   |||..!  !|||  !!.!:
+       AsnThrGlyGluLeuLeuLysGlnTrpSerAsnAspArgValProSerThrProHisPheAlaV
+ 453 : AACACTGGCGAGCTGCTGAAGCAGTGGTCCAACGACAGGGTTCCCTCTACGCCACACTTCGCCG : 390
+
+ 305 : leValAsnSerAspLysGluArgValSerLeuAlaPhePheTyrAsnProLysSerAspIlePr : 325
+       !!  !!!.!!!   ...!!:|||  !|||:!! !!||||||!:!|||  ! ! :!!|||  !  
+       alAsnLysThrThrSerAspArgTyrSerValProPhePhePheAsnCysAspAlaAspTyrVa
+ 389 : TCAACAAGACAACATCCGATAGATACAGCGTCCCTTTCTTCTTCAACTGCGATGCTGACTACGT : 327
+
+ 326 : oIleGlnProLeuGlnGluLeuValSerThrHisAsnProProLeuTyrProProMetThrPhe : 346
+       !!!:|||  !|||!  ...! !..!|||  !.!.|||||||||  !||||||||||||||||||
+       lMetGlnCysLeuProSerCysThrSerGluGluAsnProProLysTyrProProMetThrPhe
+ 326 : CATGCAGTGCCTTCCCTCTTGCACATCTGAAGAAAATCCGCCAAAATATCCACCAATGACTTTT : 264
+
+ 347 : AspGln : 348
+         !|||
+       LeuGln
+ 263 : CTTCAG : 256
+
+vulgar: Q9FFF6|reviewed|Jasmonate-induced 282 348 . NODE_1007736_length_453_cov_4979.475248 453 255 - 119 M 66 198
+# --- START OF GFF DUMP ---
+#
+#
+##gff-version 2
+##source-version exonerate:protein2genome:local 2.4.0
+##date 2024-03-22
+##type DNA
+#
+#
+# seqname source feature start end score strand frame attributes
+#
+NODE_1007736_length_453_cov_4979.475248	exonerate:protein2genome:local	gene	256	453	119	-	.	gene_id 1 ; sequence Q9FFF6|reviewed|Jasmonate-induced ; gene_orientation . ; identity 37.88 ; similarity 53.03
+NODE_1007736_length_453_cov_4979.475248	exonerate:protein2genome:local	cds	256	453	.	-	.	
+NODE_1007736_length_453_cov_4979.475248	exonerate:protein2genome:local	exon	256	453	.	-	.	insertions 0 ; deletions 0 ; identity 37.88 ; similarity 53.03
+NODE_1007736_length_453_cov_4979.475248	exonerate:protein2genome:local	similarity	256	453	119	-	.	alignment_id 1 ; Query Q9FFF6|reviewed|Jasmonate-induced ; Align 454 283 198
+# --- END OF GFF DUMP ---
+#
+>NODE_1007736_length_453_cov_4979.475248 453-255
+AACACTGGCGAGCTGCTGAAGCAGTGGTCCAACGACAGGGTTCCCTCTACGCCACACTTCGCCGTCAACA
+AGACAACATCCGATAGATACAGCGTCCCTTTCTTCTTCAACTGCGATGCTGACTACGTCATGCAGTGCCT
+TCCCTCTTGCACATCTGAAGAAAATCCGCCAAAATATCCACCAATGACTTTTCTTCAG
+
+
+C4 Alignment:
+------------
+         Query: Q5U4P2|reviewed|Aspartate beta-hydroxylase domain-containing protein 1|taxID:9606
+        Target: NODE_2236213_length_453_cov_2.165842
+         Model: protein2genome:local
+     Raw score: 147
+   Query range: 287 -> 372
+  Target range: 38 -> 293
+
+ 288 : GlyAsnAlaGlyPheSerValLeuLeuProGlyAlaArgLeuGluGlyArgCysGlyProThrA : 309
+       |||.!.!.! !!||||||:!!:!!  !||||||.!!!.!:!!  !  !!.!! !||||||||||
+       GlyGlnValArgPheSerLeuMetAlaProGlyThrHisValTrpProHisSerGlyProThrA
+  39 : GGTCAGGTGAGGTTTAGTTTGATGGCACCAGGAACTCATGTGTGGCCTCACTCTGGACCCACAA : 102
+
+ 310 : snAlaArgValArgCysHisLeuGlyLeuLysIleProProGlyCysGluLeuValValGlyGl : 330
+       ||.!!|||:!!|||..!||||||||||||!:!||||||  !! !..!!  |||  !:!!!.!! 
+       snThrArgLeuArgAlaHisLeuGlyLeuArgIleProGluGluAlaValLeuArgIleAlaAs
+ 103 : ACACAAGGTTACGAGCTCATTTGGGTCTGAGGATACCTGAGGAAGCTGTTTTGAGAATTGCAGA : 165
+
+ 331 : yGluProGlnCysTrpAlaGluGlyHisCysLeuLeuValAspAspSerPheLeuHisThrVal : 351
+       !:!!  !  !  !|||.!!||||||.!.! !  !:!!:!!||||||||||||  !|||  !|||
+       pLysAsnThrThrTrpThrGluGlyGluPheThrIleIleAspAspSerPheGluHisGlnVal
+ 166 : TAAAAATACAACCTGGACAGAAGGAGAATTCACCATCATCGATGACAGTTTTGAGCATCAAGTT : 228
+
+ 352 : AlaHisAsnGlySerProGluAspGlyProArgValValPheIleValAspLeuTrpHisPro : 372
+         !:!! !!|||!:! !!        !  !  !:!!|||  !:!!:!!  !:!!!! :!!|||
+       TrpAsnTyrGlyAsnThrProArgLeuIleLeuLeuValSerLeuIleIleIleCysTyrPro
+ 229 : TGGAACTATGGGAACACCCCTAGGCTAATTTTACTGGTGAGTCTTATCATTATTTGTTATCCT : 293
+
+vulgar: Q5U4P2|reviewed|Aspartate 287 372 . NODE_2236213_length_453_cov_2.165842 38 293 + 147 M 85 255
+# --- START OF GFF DUMP ---
+#
+#
+##gff-version 2
+##source-version exonerate:protein2genome:local 2.4.0
+##date 2024-03-22
+##type DNA
+#
+#
+# seqname source feature start end score strand frame attributes
+#
+NODE_2236213_length_453_cov_2.165842	exonerate:protein2genome:local	gene	39	293	147	+	.	gene_id 1 ; sequence Q5U4P2|reviewed|Aspartate ; gene_orientation . ; identity 35.29 ; similarity 54.12
+NODE_2236213_length_453_cov_2.165842	exonerate:protein2genome:local	cds	39	293	.	+	.	
+NODE_2236213_length_453_cov_2.165842	exonerate:protein2genome:local	exon	39	293	.	+	.	insertions 0 ; deletions 0 ; identity 35.29 ; similarity 54.12
+NODE_2236213_length_453_cov_2.165842	exonerate:protein2genome:local	similarity	39	293	147	+	.	alignment_id 1 ; Query Q5U4P2|reviewed|Aspartate ; Align 39 288 255
+# --- END OF GFF DUMP ---
+#
+>NODE_2236213_length_453_cov_2.165842 38-293
+GGTCAGGTGAGGTTTAGTTTGATGGCACCAGGAACTCATGTGTGGCCTCACTCTGGACCCACAAACACAA
+GGTTACGAGCTCATTTGGGTCTGAGGATACCTGAGGAAGCTGTTTTGAGAATTGCAGATAAAAATACAAC
+CTGGACAGAAGGAGAATTCACCATCATCGATGACAGTTTTGAGCATCAAGTTTGGAACTATGGGAACACC
+CCTAGGCTAATTTTACTGGTGAGTCTTATCATTATTTGTTATCCT
+
